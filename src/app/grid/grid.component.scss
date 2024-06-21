@@ -1,0 +1,49 @@
+h5{
+  font-style: oblique;
+  font-weight: bolder;
+  font-size: 2em;
+}
+
+img {
+  width: 100%;
+  position: relative;
+  float: right;
+}
+
+button {
+  background-color: aqua;
+  border-radius: 0.5em;
+  margin-top: 4em;
+  width: 25%;
+  margin: 5%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  // border: 1px solid black;
+  margin-top: 2em;
+}
+
+
+.btn-edit{
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+.btn-delete{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.card-skill-text{
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.footer {
+  background-color: black;
+  color: #fff;
+}

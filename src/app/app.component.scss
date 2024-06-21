@@ -1,0 +1,62 @@
+header {
+  background-color: black;
+
+}
+
+.nav{
+  font-size: larger;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
+}
+
+a {
+  color: #ffff00;
+}
+
+.nav-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.nav-log {
+  display: flex;
+  background-color: black;
+  border: 1px solid #ffff00;
+  border-radius: 10%;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 0px auto;
+  cursor: pointer;
+}
+.nav-auth{
+  display: flex;
+  background-color: black;
+  border-radius: 10%;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  list-style-type: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 0px auto;
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-pills {
+  justify-content: center;
+  flex-grow: 1;
+  display: flex;
+}

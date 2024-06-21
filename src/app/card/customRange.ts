@@ -1,0 +1,13 @@
+export enum CustomRange {
+  HAND,
+  DECK,
+  OP_HAND,
+  OP_DECK,
+  BOARD,
+  ALLY_BOARD,
+  OP_BOARD,
+  GRAVEYARD,
+  ALLY_GRAVEYARD,
+  OP_GRAVEYARD,
+  ALL
+}

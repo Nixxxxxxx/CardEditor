@@ -1,0 +1,19 @@
+/* Style for the form container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Aligns children to start and end */
+  padding: 20px; /* Optional: adds some spacing inside the form */
+}
+
+/* Style for the button container */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Positions one button on the left, one on the right */
+  padding-top: 20px; /* Adds some spacing between the form content and the buttons */
+}
+
+/* Additional styles for centering the form title */
+.text-center {
+  text-align: center;
+}

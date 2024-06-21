@@ -1,0 +1,14 @@
+stages:
+  - deploy
+
+deploy-Web-job:
+  stage: deploy
+  only:
+   - master
+  script:
+    - echo $PWD
+    - ls
+    - docker-compose up --build -d
+  tags:
+    - Web
+

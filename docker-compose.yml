@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+ crazy_tactics_web:
+    image: card-editor:v1
+    build: .
+    container_name: CardEditor
+    ports:
+     - "8881:80"

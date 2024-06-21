@@ -1,0 +1,50 @@
+.selector {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/images/login_bg.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h2 {
+  color: #fff;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 650px;
+  height: 290px;
+  font-size: 8em;
+  font-style: italic;
+  font-weight: bolder;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #ff0000f3;
+  background-image: url("../../assets/images/tactics.png");
+}
+
+.selector video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the container without losing aspect ratio */
+}
+
+.animate-title {
+  /* Start off-screen to the left */
+  position: relative;
+  left: -100px;
+  /* Animation name, duration, and fill mode */
+  animation: slideIn 2.5s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    left: -50%px;
+    opacity: 0;
+  }
+  to {
+    left: 40%;
+    opacity: 1;
+  }
+}

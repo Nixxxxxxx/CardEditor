@@ -1,0 +1,17 @@
+<div class="dropdown-row">
+  <select [(ngModel)]="key" (change)="updateDropdownOptions(key)" name="select1">
+    <option *ngFor="let option of keyOptions" [value]="option">{{ option }}</option>
+  </select>
+
+  <select [(ngModel)]="operator" name="select2">
+    <option *ngFor="let option of operatorOptions" [value]="option">{{ option }}</option>
+  </select>
+
+  <select [(ngModel)]="value" name="select3">
+    <option *ngFor="let option of valueOptions" [value]="option">{{ option }}</option>
+  </select>
+
+  <button (click)="removeComponent()">X</button>
+</div>
+
+

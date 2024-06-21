@@ -1,0 +1,20 @@
+.dropdown-row {
+  display: flex;
+  margin: 0 0 20px 0;
+  width: 100%; /* Ensure it spans the full width of its parent */
+  justify-content: space-between; /* Distributes space between the dropdowns if needed */
+}
+
+.dropdown-row select {
+  flex: 1; /* Allows each select to grow and fill the container */
+  margin: 0 8px; /* Optional: adds some space between the selects */
+}
+
+/* To make the first and last select align with the container's edges */
+.dropdown-row select:first-child {
+  margin-left: 0;
+}
+
+.dropdown-row select:last-child {
+  margin-right: 0;
+}

@@ -1,0 +1,38 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      name: pi42-agent
+    steps:
+      - task: Docker@2
+        displayName: Build Api
+        inputs:
+          command: 'build'
+          Dockerfile: './Dockerfile'
+          buildContext: './'
+          repository: 'nissen2022/tactictoe_card_editor_v1'
+          tags: $(Build.BuildNumber)
+          arguments: '--build-arg VERSION="$(Build.BuildNumber)" '
+          
+      - task: Docker@2
+        displayName: Push Api
+        inputs:
+          command: 'push'
+          repository: 'nissen2022/tactictoe_card_editor_v1'
+          tags: $(Build.BuildNumber)

@@ -1,0 +1,132 @@
+<div class="row">
+
+  <hr class="mb-5">
+
+  <div class="col-md-4">
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Name</label>
+      <div class="col-sm-8">
+          <input type="text" name="card-name" class="form-control" [(ngModel)]="card.name"
+          placeholder="Enter Card Name">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Cost</label>
+      <div class="col-sm-8">
+          <input type="number" name="card-cost" class="form-control" [(ngModel)]="card.cost"
+          placeholder="0">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Attack</label>
+      <div class="col-sm-8">
+          <input type="number" name="card-attack" class="form-control" [(ngModel)]="card.atk"
+          placeholder="0">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Defense</label>
+      <div class="col-sm-8">
+          <input type="number" name="card-defense" class="form-control" [(ngModel)]="card.def"
+          placeholder="0">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Agility</label>
+      <div class="col-sm-8">
+          <input type="number" name="card-agility" class="form-control" [(ngModel)]="card.agility"
+          placeholder="0">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Description</label>
+      <div class="col-sm-8">
+          <textarea rows="4" name="card-description" class="form-control" [(ngModel)]="card.description"
+          placeholder="Enter Card Description">
+        </textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 bg-secondary">
+    <img width="100%" src="{{card.imageUrl}}">
+    <div class="row">
+      <label class="col-md-12 text-center">ImageUrl</label>
+      <div class="col-md-12">
+          <input type="text" name="card-image" class="form-control" [(ngModel)]="card.imageUrl"
+          placeholder="Enter Card ImageUrl">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Card-Type</label>
+      <select class="col-sm-8" [(ngModel)]="card.cardType">
+        <option *ngFor="let item of CardTypes" name="attackType"> {{item}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Gender</label>
+      <select class="col-sm-8" [(ngModel)]="card.gender">
+        <option *ngFor="let gender of Genders" name="attackType"> {{gender}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">VoiceLine</label>
+      <select class="col-sm-8" [(ngModel)]="card.voiceLine">
+        <option *ngFor="let voice of VoiceLines" name="attackType"> {{voice}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">AttackType</label>
+      <select class="col-sm-8" [(ngModel)]="card.attackType">
+        <option *ngFor="let attackType of AttackTypes" name="attackType"> {{attackType}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">AnimationType</label>
+      <select class="col-sm-8" [(ngModel)]="card.animationType">
+        <option *ngFor="let animation of AnimationTypes" name="attackType"> {{animation}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Job</label>
+      <select class="col-sm-8" [(ngModel)]="card.job">
+        <option *ngFor="let job of Jobs" name="attackType"> {{job}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Race</label>
+      <select class="col-sm-8" [(ngModel)]="card.race">
+        <option *ngFor="let race of Races" name="attackType"> {{race}} </option>
+      </select>
+    </div>
+
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Intent</label>
+      <select class="col-sm-8" [(ngModel)]="card.intent">
+        <option *ngFor="let item of Intent" name="attackType"> {{item}} </option>
+      </select>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="form-group row my-5">
+      <label class="col-sm-3">Is ready for realease</label>
+      <div class="col-sm-2">
+        <input class="isReady" type="checkbox" name="card-is-ready" [(ngModel)]="card.isRealeaseReady">
+      </div>
+      <label class="col-sm-3">Add card to library</label>
+      <button (click)="addCard()" class="btn btn-primary col-sm-2">Save</button>
+    </div>
+  </div>
+</div>

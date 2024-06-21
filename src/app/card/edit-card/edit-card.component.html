@@ -1,0 +1,262 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group row my-2">
+      <span class="col-sm-4"></span>
+      <button (click)="updateCard()" class="btn btn-primary col-sm-1"> Update </button>
+      <button id="btn-skill-add" *ngIf="!(this.card.skills && this.card.skills.length > 0)" (click)="addSkill()" class="btn btn-secondary col-sm-1 mx-1"> Add-Skill </button>
+      <button id="btn-skill-stats" *ngIf="this.card.skills && this.card.skills.length > 0" (click)="showSkill(true)" class="btn btn-secondary col-sm-1 mx-1"> Edit-Skill </button>
+
+      <button id="btn-card-stats" (click)="showSkill(false)" class="btn btn-primary col-sm-1 mx-1"> Card-Stats </button>
+      <button id="btn-skill-delete" *ngIf="this.card.skills && this.card.skills.length > 0" (click)="deleteSkill()" class="btn btn-secondary col-sm-1 mx-1"> Delete-Skill </button>
+    </div>
+  </div>
+
+  <div id="card-stats" class="col-md-4">
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Name</label>
+      <div class="col-sm-8">
+          <input type="text" name="card-name" class="form-control" [(ngModel)]="card.name"
+          placeholder="Enter Card Name">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Cost</label>
+      <div class="col-sm-8">
+          <input type="number" name="card-cost" class="form-control" [(ngModel)]="card.cost"
+          placeholder="0">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Attack</label>
+      <div class="col-sm-8">
+          <input type="number" name="card-attack" class="form-control" [(ngModel)]="card.atk"
+          placeholder="0">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Defense</label>
+      <div class="col-sm-8">
+          <input type="number" name="card-defense" class="form-control" [(ngModel)]="card.def"
+          placeholder="0">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Agility</label>
+      <div class="col-sm-8">
+          <input type="number" name="card-agility" class="form-control" [(ngModel)]="card.agility"
+          placeholder="0">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Description</label>
+      <div class="col-sm-8">
+          <textarea rows="4" name="card-description" class="form-control" [(ngModel)]="card.description"
+          placeholder="Enter Card Description">
+        </textarea>
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-4">Is Ready</label>
+      <input class="isReady col-sm-8" type="checkbox" name="card-is-ready" [(ngModel)]="card.isRealeaseReady">
+    </div>
+  </div>
+
+  <div id="skill-stats" class="col-md-4 bg-secondary">
+    <span *ngIf="this.card.skills && this.card.skills.length > 0" >
+      <div class="form-group row my-3">
+        <label class="col-sm-4">Description</label>
+        <div class="col-sm-8">
+            <textarea rows="4" name="skill-description" class="form-control" [(ngModel)]="card.skills[0].description"
+            placeholder="Enter skill Description">
+          </textarea>
+        </div>
+      </div>
+      <div class="form-group row my-3">
+        <label class="col-sm-4">Skill-Name</label>
+        <div class="col-sm-8">
+            <input type="text" name="skill-name" class="form-control" [(ngModel)]="this.card.skills[0].name"
+            placeholder="Enter Skill Name">
+        </div>
+      </div>
+
+      <div class="form-group row my-3">
+        <label class="col-sm-4">CostAds</label>
+        <div class="col-sm-8">
+            <input type="number" name="skill-cost" class="form-control" [(ngModel)]="this.card.skills[0].costAds"
+            placeholder="0">
+        </div>
+      </div>
+      <div class="form-group row my-3">
+        <label class="col-sm-4">AttackAds</label>
+        <div class="col-sm-8">
+            <input type="number" name="skill-attack" class="form-control" [(ngModel)]="this.card.skills[0].atkAds"
+            placeholder="0">
+        </div>
+      </div>
+      <div class="form-group row my-3">
+        <label class="col-sm-4">DefenseAds</label>
+        <div class="col-sm-8">
+            <input type="number" name="skill-defense" class="form-control" [(ngModel)]="this.card.skills[0].defAds"
+            placeholder="0">
+        </div>
+      </div>
+      <div class="form-group row my-3">
+        <label class="col-sm-4">AgilityAds</label>
+        <div class="col-sm-8">
+            <input type="number" name="skill-agility" class="form-control" [(ngModel)]="this.card.skills[0].agiAds"  placeholder="0">
+        </div>
+      </div>
+      <div class="form-group row my-3">
+        <label class="col-sm-4">GoldAds</label>
+        <div class="col-sm-8">
+            <input type="number" name="skill-golds" class="form-control" [(ngModel)]="this.card.skills[0].goldAds"  placeholder="0">
+        </div>
+      </div>
+      <div class="form-group row my-3">
+        <label class="col-sm-4">TurnAds</label>
+        <div class="col-sm-8">
+            <input type="number" name="skill-turns" class="form-control" [(ngModel)]="this.card.skills[0].turnAds" placeholder="0">
+        </div>
+      </div>
+    </span>
+  </div>
+
+  <div class="col-md-4 bg-secondary">
+    <img width="100%" src="{{card.imageUrl}}">
+    <div class="row my-2">
+      <label class="col-sm-12 pt-1 text-center">ImageUrl</label>
+      <div class="col-sm-12">
+          <input type="text" name="card-image" class="form-control" [(ngModel)]="card.imageUrl"
+          placeholder="Enter Card ImageUrl">
+      </div>
+    </div>
+  </div>
+
+  <div id="skill-details" class="col-md-4 bg-secondary">
+    <span *ngIf="this.card.skills && this.card.skills.length > 0" >
+      <div class="form-group row my-3">
+        <label class="col-sm-3">Trigger-Type</label>
+        <div class="col-sm-8">
+          <input type="number" name="skill-trigger" class="form-control" [(ngModel)]="this.card.skills[0].triggerTypes" placeholder="0">
+        </div>
+      </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Source</label>
+      <div class="col-sm-8">
+          <input type="number" name="skill-source" class="form-control" [(ngModel)]="this.card.skills[0].source"
+          placeholder="0">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Destination</label>
+      <div class="col-sm-8">
+          <input type="number" name="skill-destination" class="form-control" [(ngModel)]="this.card.skills[0].destination"
+          placeholder="0">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Action</label>
+      <div class="col-sm-8">
+          <input type="text" name="skill-action" class="form-control" [(ngModel)]="this.card.skills[0].action"
+          placeholder="Enter Action">
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <button (click)="openDialog()" class="btn btn-warning col-sm-3"> Skill-Condition </button>
+      <div class="col-sm-8">
+          <input type="text" name="skill-condition" class="form-control" [(ngModel)]="this.card.skills[0].condition"
+          placeholder="Enter Condition" readonly>
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label class="col-sm-12 text-center mb-2">Card Pool Source/Destination Types</label>
+      <ul class="col-sm-6 px-5">
+        <li>0    : None </li>
+        <li>1    : Hand</li>
+        <li>2    : Deck</li>
+        <li>4    : OpponentHand</li>
+        <li>8    : OpponentDeck</li>
+        <li>16   : Board</li>
+      </ul>
+      <ul class="col-sm-6">
+        <li>32   : OpponentBoard</li>
+        <li>64   : Graveyard</li>
+        <li>128  : OpponentGraveyard</li>
+        <li>256  : Disintergrated</li>
+        <li>512  : OpponentDisintergrated</li>
+        <li>1023 : All</li>
+      </ul>
+      <label class="col-sm-12 text-center mb-2">Skill Trigger-Types</label>
+      <ul class="col-sm-6 px-5">
+        <li>1    : Battlecry </li>
+        <li>2    : Deathrattle</li>
+        <li>4    : StartOfTurn</li>
+      </ul>
+      <ul class="col-sm-6">
+        <li>8   : EndOfTurn</li>
+        <li>16  : StartOfGame</li>
+        <li>32  : Passive</li>
+      </ul>
+    </div>
+    </span>
+  </div>
+
+  <div id="card-details" class="col-md-4">
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Card-Type</label>
+      <select class="col-sm-8" [(ngModel)]="card.cardType">
+        <option *ngFor="let item of CardTypes" name="cardType"> {{item}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Gender</label>
+      <select class="col-sm-8" [(ngModel)]="card.gender">
+        <option *ngFor="let gender of Genders" name="gender"> {{gender}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">VoiceLine</label>
+      <select class="col-sm-8" [(ngModel)]="card.voiceLine">
+        <option *ngFor="let voice of VoiceLines" name="voiceLine"> {{voice}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">AttackType</label>
+      <select class="col-sm-8" [(ngModel)]="card.attackType">
+        <option *ngFor="let attackType of AttackTypes" name="attackType"> {{attackType}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">AnimationType</label>
+      <select class="col-sm-8" [(ngModel)]="card.animationType">
+        <option *ngFor="let animation of AnimationTypes" name="animation"> {{animation}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Job</label>
+      <select class="col-sm-8" [(ngModel)]="card.job">
+        <option *ngFor="let job of Jobs" name="job"> {{job}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Race</label>
+      <select class="col-sm-8" [(ngModel)]="card.race">
+        <option *ngFor="let race of Races" name="race"> {{race}} </option>
+      </select>
+    </div>
+
+    <div class="form-group row my-3">
+      <label class="col-sm-3">Intent</label>
+      <select class="col-sm-8" [(ngModel)]="card.intent">
+        <option *ngFor="let item of Intent" name="intent"> {{item}} </option>
+      </select>
+    </div>
+  </div>
+</div>
